@@ -16,8 +16,12 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('admin.cities.create')" :active="request()->routeIs('admin.cities.create')">
-                        {{ __('Nova Cidade') }}
+                    <x-nav-link :href="route('admin.cities.index')" :active="request()->routeIs('admin.cities.index')">
+                        {{ __('Cidades') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.index')">
+                        {{ __('Serviços') }}
                     </x-nav-link>
                 </div>
             </div>

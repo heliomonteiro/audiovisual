@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCityRequest;
-use App\Http\Requests\UpdateCityRequest;
 use App\Models\City;
 use Illuminate\Support\Str;
+use App\Http\Requests\StoreCityRequest;
+use App\Http\Requests\UpdateCityRequest;
 
 class CityController extends Controller
 {

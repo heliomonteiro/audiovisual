@@ -11,7 +11,7 @@ class UpdateServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdateServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nome' => 'required|string|max:255',
+            'tipo' => 'required|string|max:100',
+            'descricao' => 'nullable|string',
+            'cidade_id' => 'required|exists:cities,id',
+            'lat' => 'required|numeric|min:-90|max:90',
+            'lng' => 'required|numeric|min:-180|max:180',
         ];
     }
 }

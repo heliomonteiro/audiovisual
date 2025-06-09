@@ -28,8 +28,8 @@ class ServiceSeeder extends Seeder
         ];
 
         foreach ($servicos as $dados) {
-            $city = City::where('name', $dados['cidade'])
-                        ->where('state', $dados['estado'])
+            $city = City::where('nome', $dados['cidade'])
+                        ->where('estado', $dados['estado'])
                         ->first();
 
             if ($city) {

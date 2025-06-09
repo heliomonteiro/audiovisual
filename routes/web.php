@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::get('/', function () {
     return view('home');
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('cities', CityController::class);
+    Route::resource('services', ServiceController::class);
 });
 
 //Route::put('cities/{city}', [CityController::class, 'update'])->name('admin.cities.update');
