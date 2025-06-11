@@ -6,9 +6,15 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\JobOfferController;
 
+// Antes:
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+// Depois (com nome):
 Route::get('/', function () {
     return view('home');
-});
+})->name('home'); // Adicione .name('home') aqui
 
 Route::get('/dashboard', function () {
     return view('dashboard');

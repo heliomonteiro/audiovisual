@@ -75,30 +75,29 @@
               </a>
             </li>
 
-            <li class="nav-item">
+            @if (Route::has('login'))
+                    @auth
+                    <li class="nav-item">
+                      <a href="{{ url('/dashboard') }}" class="nav-link text-white fw-semibold">
+                          <i class="fas fa-user me-1"></i>Dashboard
+                      </a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                      <a href="{{ route('login') }}" class="nav-link text-white fw-semibold">
+                          <i class="fas fa-user me-1"></i>Log in
+                      </a>
+                    </li>
 
-                    @if (Route::has('login'))
-                            @auth
-                            <a href="{{ url('/dashboard') }}" class="nav-link text-white fw-semibold">
-                                <i class="fas fa-user me-1"></i>Dashboard
+                        @if (Route::has('register'))   
+                        <li class="nav-item">
+                            <a href="{{ route('register') }}" class="nav-link text-white fw-semibold">
+                                <i class="fas fa-user me-1"></i> Registrar
                             </a>
-                            @else
-                            <a href="{{ route('login') }}" class="nav-link text-white fw-semibold">
-                                <i class="fas fa-user me-1"></i>Log in
-                            </a>
-
-                                @if (Route::has('register'))   
-                                    <a href="{{ route('register') }}" class="nav-link text-white fw-semibold">
-                                        <i class="fas fa-user me-1"></i> Register
-                                    </a>
-                                @endif
-                            @endauth
-                    @endif
-
-
-            </li>
-
-
+                            </li>
+                        @endif
+                    @endauth
+            @endif
 
           </ul>
         </div>

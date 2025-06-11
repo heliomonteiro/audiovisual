@@ -24,6 +24,10 @@
                         {{ __('Serviços') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Ir para o Site') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('admin.job_offers.index')" :active="request()->routeIs('admin.job_offers.index')">
                         {{ __('Vagas') }}
                     </x-nav-link>
