@@ -6,16 +6,17 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\JobOfferController;
 use App\Http\Controllers\Admin\DashboardController; // <<-- Importação agora inclui Admin
+use App\Http\Controllers\HomeController;
 
-// Antes:
-// Route::get('/', function () {
-//     return view('home');
-// });
+ Antes:
+ Route::get('/testemapa', function () {
+     return view('testemapa');
+ });
 
-// Depois (com nome):
-Route::get('/', function () {
-    return view('home');
-})->name('home'); // Adicione .name('home') aqui
+Route::get('/', [HomeController::class, 'index'])->name('home');
+//Route::get('/dados-home', [HomeController::class, 'getData']); // será usada pelo JavaScript
+Route::get('/dados-home', [HomeController::class, 'dadosHome']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

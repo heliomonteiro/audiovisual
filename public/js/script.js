@@ -1,5 +1,6 @@
 new window.VLibras.Widget('https://vlibras.gov.br/app');
 
+/*
 const servicos = [
   { nome: "Clínica Acolher", estado: "MG", cidade: "Uberaba", tipo: "Saúde", descricao: "Psicologia com Libras", lat: -19.7477, lng: -47.9318 },
   { nome: "Escola Inclusiva SP", estado: "SP", cidade: "São Paulo", tipo: "Educação", descricao: "Ensino acessível", lat: -23.5505, lng: -46.6333 },
@@ -24,6 +25,23 @@ const vagas = [
   { nome: "Revisor de Textos", estado: "MG", cidade: "Belo Horizonte", tipo: "Comunicação", descricao: "Trabalho remoto com inclusão", lat: -19.9198, lng: -43.9384 },
   { nome: "Promotor de Vendas", estado: "SP", cidade: "Santos", tipo: "Comércio", descricao: "Equipe treinada em Libras", lat: -23.9611, lng: -46.3332 }
 ];
+*/
+
+fetch('/dados-home')
+  .then(response => response.json())
+  .then(data => {
+    const servicos = data.servicos;
+    const vagas = data.vagas;
+
+    criarFiltros(servicos, 'filtrosServicos', 'servicos', 'servicosFiltro');
+    criarFiltros(vagas, 'filtrosVagas', 'vagas', 'vagasFiltro');
+
+    window.servicosFiltro = appFiltros(servicos, 'servicos', 'listaServicos', 'map');
+    window.vagasFiltro = appFiltros(vagas, 'vagas', 'listaVagas', 'mapVagas');
+  })
+  .catch(error => {
+    console.error('Erro ao carregar dados da home:', error);
+  });
 
 function criarFiltros(dados, containerId, prefixo, aoSelecionar) {
   const estados = [...new Set(dados.map(d => d.estado))];
@@ -145,9 +163,3 @@ function appFiltros(dados, prefixo, listaId, mapId) {
   renderizar();
   return api;
 }
-
-criarFiltros(servicos, 'filtrosServicos', 'servicos', 'servicosFiltro');
-criarFiltros(vagas, 'filtrosVagas', 'vagas', 'vagasFiltro');
-
-const servicosFiltro = appFiltros(servicos, 'servicos', 'listaServicos', 'map');
-const vagasFiltro = appFiltros(vagas, 'vagas', 'listaVagas', 'mapVagas');

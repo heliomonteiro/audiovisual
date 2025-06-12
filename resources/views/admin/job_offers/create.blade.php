@@ -10,6 +10,7 @@
             <form action="{{ route('admin.job_offers.store') }}" method="POST">
                 @include('admin.job_offers.form')
             </form>
+
         </div>
     </div>
 </x-app-layout>
