@@ -56,6 +56,15 @@
         class="form-input mt-1 block w-full rounded-md shadow-sm border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" required>
 </div>
 
+<!-- Aviso sobre como obter coordenadas -->
+<div class="mb-6 bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded">
+    <p class="text-sm">
+        💡 Para preencher Latitude e Longitude, acesse 
+        <a href="https://www.coordenadas-gps.net/" target="_blank" class="text-blue-600 underline font-semibold">coordenadas-gps.net</a>,
+        pesquise o endereço desejado e copie os valores para os campos acima.
+    </p>
+</div>
+
 <div class="flex items-center justify-end mt-4">
     <button type="submit"
         class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
